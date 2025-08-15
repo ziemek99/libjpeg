@@ -648,3 +648,13 @@ Release 1.70:
   current line and the next line were still covered by the data in the AC
   or Huffman decoder. I want to thank Robert Ancell for reporting this defect
   and providing a fix.
+  
+--------------------------------------------------------------------------
+
+Release 1.71:
+- The encoder now also uses the chroma tables computed by Peterson,
+  Ahumada and Watson if the -qt 8 command line option selects them. This
+  allows better bit allocation in chroma. For this, the code now also
+  allows to embed 3 quantization tables (and not just two). If HDR
+  coding is used, however, one of the tables need to go as the two
+  remaining tables are used for the HDR residual.
